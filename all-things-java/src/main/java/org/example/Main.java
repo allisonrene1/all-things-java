@@ -25,6 +25,10 @@ public class Main {
 
     }
 
+    public String firstHalf(String word) {
+        return word.substring(0, word.length() / 2);
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -38,6 +42,9 @@ public class Main {
 
         String exampleWordsAnswer = mainInstance.wordInMiddle("<<>>", "hello");
         System.out.println(exampleWordsAnswer);
+
+        String theAnswer2 = mainInstance.firstHalf("WhatThat");
+        System.out.println(theAnswer2);
 
     }
 
