@@ -16,6 +16,15 @@ public class Main {
         return "Hello " + name + "!";
     }
 
+    public String wordInMiddle(String arrows, String word) {
+
+        String first = arrows.substring(0, 2);
+        String second = arrows.substring(2, 4);
+        String finalOutput = first + word + second;
+        return finalOutput;
+
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -27,7 +36,8 @@ public class Main {
         String theAnswer1 = mainInstance.greeting("Allison");
         System.out.println(theAnswer1);
 
-
+        String exampleWordsAnswer = mainInstance.wordInMiddle("<<>>", "hello");
+        System.out.println(exampleWordsAnswer);
 
     }
 
