@@ -12,6 +12,10 @@ public class Main {
         return false;
     }
 
+    public String greeting(String name) {
+        return "Hello " + name + "!";
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -19,6 +23,11 @@ public class Main {
        int[] newNumbers = {2, 3, 4, 5};
        boolean theAnswer = mainInstance.has23(newNumbers);
         System.out.println(theAnswer);
+
+        String theAnswer1 = mainInstance.greeting("Allison");
+        System.out.println(theAnswer1);
+
+
 
     }
 
