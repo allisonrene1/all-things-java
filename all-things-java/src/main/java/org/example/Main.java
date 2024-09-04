@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -43,6 +44,18 @@ public class Main {
         return newArrayList;
     }
 
+
+    public String[] list2Array(List<String> words) {
+
+        String[] myNewString = new String[words.size()];
+
+        for(int i = 0; i < words.size(); i++) {
+            myNewString[i] = words.get(i);
+        }
+
+        return myNewString;
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -63,6 +76,10 @@ public class Main {
         String[] exampleWords = new String[] {"yes", "okay", "no thank you", "goodbye"};
         List<String> exampleWords1 = mainInstance.sameOrder(exampleWords);
         System.out.println(exampleWords1);
+
+        List<String> exampleWords2 = new ArrayList<>(Arrays.asList("okay", "yes", "sure thing", "what the heck"));
+        String[] exampleWords3 = mainInstance.list2Array(exampleWords2);
+        System.out.println(Arrays.toString(exampleWords3));
 
 
     }
