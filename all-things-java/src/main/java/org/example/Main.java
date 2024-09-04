@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 
@@ -29,6 +32,17 @@ public class Main {
         return word.substring(0, word.length() / 2);
     }
 
+    public List<String> sameOrder(String[] words) {
+
+        List<String> newArrayList = new ArrayList<>();
+
+        for(int i = 0; i < words.length; i++) {
+            newArrayList.add(words[i]);
+        }
+
+        return newArrayList;
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -45,6 +59,11 @@ public class Main {
 
         String theAnswer2 = mainInstance.firstHalf("WhatThat");
         System.out.println(theAnswer2);
+
+        String[] exampleWords = new String[] {"yes", "okay", "no thank you", "goodbye"};
+        List<String> exampleWords1 = mainInstance.sameOrder(exampleWords);
+        System.out.println(exampleWords1);
+
 
     }
 
