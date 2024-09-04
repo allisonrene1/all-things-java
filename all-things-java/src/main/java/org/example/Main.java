@@ -56,6 +56,20 @@ public class Main {
         return myNewString;
     }
 
+
+    public List<String> no4LetterWords(String[] words) {
+
+        List<String> myArrayList = new ArrayList<>();
+
+        for(int i = 0; i < words.length; i++) {
+            if(words[i].length() != 4) {
+                myArrayList.add(words[i]);
+            }
+        }
+        return myArrayList;
+    }
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -81,6 +95,9 @@ public class Main {
         String[] exampleWords3 = mainInstance.list2Array(exampleWords2);
         System.out.println(Arrays.toString(exampleWords3));
 
+        String[] exampleWords4 = new String[] {"example", "not", "okay", "who", "good", "where", "what"};
+        List<String> exampleWords5 = mainInstance.no4LetterWords(exampleWords4);
+        System.out.println(exampleWords5);
 
     }
 
