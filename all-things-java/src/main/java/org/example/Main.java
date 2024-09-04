@@ -69,6 +69,16 @@ public class Main {
         return myArrayList;
     }
 
+    public List<Double> intToDouble(int[] numbers) {
+
+        List<Double> myArrayList = new ArrayList<>();
+
+        for(int i = 0; i < numbers.length; i++) {
+            myArrayList.add((double) numbers[i] / 2);
+        }
+
+        return myArrayList;
+    }
 
     public static void main(String[] args) {
 
@@ -98,6 +108,10 @@ public class Main {
         String[] exampleWords4 = new String[] {"example", "not", "okay", "who", "good", "where", "what"};
         List<String> exampleWords5 = mainInstance.no4LetterWords(exampleWords4);
         System.out.println(exampleWords5);
+
+        int[] exampleNumbers = new int[] {84, 99, 3285, 13, 877};
+        List<Double> exampleNumbers1 = mainInstance.intToDouble(exampleNumbers);
+        System.out.println(exampleNumbers1);
 
     }
 
