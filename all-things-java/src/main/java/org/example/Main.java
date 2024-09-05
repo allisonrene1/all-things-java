@@ -90,6 +90,24 @@ public class Main {
 
     }
 
+    public double isItOnSale(Map<String, Double> itemsOnSale, String itemNumber) {
+        if(itemNumber == null || itemNumber.isEmpty()) {
+            return 0.0;
+        }
+
+        Map<String, Double> caseSensitive = new HashMap<>();
+        for(Map.Entry<String, Double> entry : itemsOnSale.entrySet()) {
+            caseSensitive.put(entry.getKey().toLowerCase(), entry.getValue());
+        }
+
+        String lowerCaseItemNumber = itemNumber.toLowerCase();
+        if(caseSensitive.containsKey(lowerCaseItemNumber)) {
+            return caseSensitive.get(lowerCaseItemNumber);
+        }
+        return 0.0;
+
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -125,6 +143,13 @@ public class Main {
 
         Map<String, String> exampleAnimals = mainInstance.animalGroups();
         System.out.println(exampleAnimals);
+
+      Map<String, Double> exampleItems = new HashMap<>();
+      exampleItems.put("KITCHEN4001", 0.20);
+      exampleItems.put("GARAGE1070", 0.15);
+      double discountResults = mainInstance.isItOnSale(exampleItems, "kitchen4001");
+        System.out.println(discountResults);
+
 
     }
 
