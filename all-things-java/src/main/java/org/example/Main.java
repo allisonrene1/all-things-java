@@ -1,8 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -80,6 +78,18 @@ public class Main {
         return myArrayList;
     }
 
+    public Map<String, String> animalGroups() {
+
+        Map<String, String> animalMapping = new HashMap<>();
+
+        animalMapping.put("wolves", "pack");
+        animalMapping.put("lion", "pride");
+        animalMapping.put("crow", "murder");
+
+        return animalMapping;
+
+    }
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
@@ -112,6 +122,9 @@ public class Main {
         int[] exampleNumbers = new int[] {84, 99, 3285, 13, 877};
         List<Double> exampleNumbers1 = mainInstance.intToDouble(exampleNumbers);
         System.out.println(exampleNumbers1);
+
+        Map<String, String> exampleAnimals = mainInstance.animalGroups();
+        System.out.println(exampleAnimals);
 
     }
 
