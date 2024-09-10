@@ -107,6 +107,23 @@ public class Main {
         return 0.0;
 
     }
+    
+
+    public String extraEnd(String str) {
+
+        if(str.length() <= 2) {
+            return str + str + str;
+        } else {
+
+            String string = str.substring(str.length() - 2);
+            String finalString = string + string + string;
+            return finalString;
+
+        }
+
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -150,6 +167,8 @@ public class Main {
       double discountResults = mainInstance.isItOnSale(exampleItems, "kitchen4001");
         System.out.println(discountResults);
 
+        String exampleWord6 = mainInstance.extraEnd("goodbye");
+        System.out.println(exampleWord6);
 
     }
 
