@@ -131,7 +131,6 @@ public class Main {
         }
 
     }
-    
 
     public String comboString(String firstWord, String secondWord) {
 
@@ -141,6 +140,21 @@ public class Main {
             return firstWord + secondWord + firstWord;
         }
 
+    }
+
+    /*
+	 Given a string and an int n, return a string made of the first and last n chars from the string. The
+	 string length will be at least n.
+	 nTwice("Hello", 2) → "Helo"
+	 nTwice("Chocolate", 3) → "Choate"
+	 nTwice("Chocolate", 1) → "Ce"
+	 */
+
+    public String nTwice(String word, int number) {
+
+        String firstOutput = word.substring(0, number);
+        String secondOutput = word.substring(word.length() - number);
+        return firstOutput + secondOutput;
 
     }
 
@@ -150,52 +164,8 @@ public class Main {
 
        Main mainInstance = new Main();
 
-       int[] newNumbers = {2, 3, 4, 5};
-       boolean theAnswer = mainInstance.has23(newNumbers);
-        System.out.println(theAnswer);
-
-        String theAnswer1 = mainInstance.greeting("Allison");
-        System.out.println(theAnswer1);
-
-        String exampleWordsAnswer = mainInstance.wordInMiddle("<<>>", "hello");
-        System.out.println(exampleWordsAnswer);
-
-        String theAnswer2 = mainInstance.firstHalf("WhatThat");
-        System.out.println(theAnswer2);
-
-        String[] exampleWords = new String[] {"yes", "okay", "no thank you", "goodbye"};
-        List<String> exampleWords1 = mainInstance.sameOrder(exampleWords);
-        System.out.println(exampleWords1);
-
-        List<String> exampleWords2 = new ArrayList<>(Arrays.asList("okay", "yes", "sure thing", "what the heck"));
-        String[] exampleWords3 = mainInstance.list2Array(exampleWords2);
-        System.out.println(Arrays.toString(exampleWords3));
-
-        String[] exampleWords4 = new String[] {"example", "not", "okay", "who", "good", "where", "what"};
-        List<String> exampleWords5 = mainInstance.no4LetterWords(exampleWords4);
-        System.out.println(exampleWords5);
-
-        int[] exampleNumbers = new int[] {84, 99, 3285, 13, 877};
-        List<Double> exampleNumbers1 = mainInstance.intToDouble(exampleNumbers);
-        System.out.println(exampleNumbers1);
-
-        Map<String, String> exampleAnimals = mainInstance.animalGroups();
-        System.out.println(exampleAnimals);
-
-      Map<String, Double> exampleItems = new HashMap<>();
-      exampleItems.put("KITCHEN4001", 0.20);
-      exampleItems.put("GARAGE1070", 0.15);
-      double discountResults = mainInstance.isItOnSale(exampleItems, "kitchen4001");
-        System.out.println(discountResults);
-
-        String exampleWord6 = mainInstance.extraEnd("goodbye");
-        System.out.println(exampleWord6);
-
-        String exampleWord7 = mainInstance.firstTwo("x");
-        System.out.println(exampleWord7);
-
-        String exampleWord8 = mainInstance.comboString("aaa", "b");
-        System.out.println(exampleWord8);
+       String exampleWord1 = mainInstance.nTwice("chocolate", 1);
+        System.out.println(exampleWord1);
 
     }
 
