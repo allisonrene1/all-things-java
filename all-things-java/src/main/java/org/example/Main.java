@@ -186,7 +186,7 @@ public class Main {
         return largestNumber;
 
     }
-    
+
     public List<Integer> oddOnly(int[] arrayOfIntegers) {
 
         List<Integer> myNewList = new ArrayList<>();
@@ -197,6 +197,24 @@ public class Main {
             }
         }
         return myNewList;
+    }
+    
+
+    public boolean foundTwice(List<Integer> listOfIntegers, int value) {
+
+        int counter = 0;
+
+        for(int i = 0; i < listOfIntegers.size(); i++) {
+            if(listOfIntegers.get(i) == value) {
+                counter++;
+            }
+        }
+        if(counter >= 2) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 
@@ -220,6 +238,10 @@ public class Main {
        int[] exampleNumbers3 = {1143, 555, 7, 1772, 9953, 643};
        List<Integer> exampleNumbers4 = mainInstance.oddOnly(exampleNumbers3);
         System.out.println(exampleNumbers4);
+
+        List<Integer> exampleNumbers5 = new ArrayList<>(Arrays.asList(6, 8, 10, 11, 13));
+        boolean exampleNumbers6 = mainInstance.foundTwice(exampleNumbers5, 5);
+        System.out.println(exampleNumbers6);
 
 
 
