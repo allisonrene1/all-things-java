@@ -150,7 +150,7 @@ public class Main {
         return firstOutput + secondOutput;
 
     }
-    
+
 
     public String twoCharOutput(String word, int number) {
 
@@ -165,6 +165,15 @@ public class Main {
     }
 
 
+    public String middleThree(String word) {
+
+        int middleStart = word.length() / 2;
+        String newOuput = word.substring(middleStart -1, middleStart + 2);
+        return newOuput;
+
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -175,6 +184,9 @@ public class Main {
 
         String exampleWord2 = mainInstance.twoCharOutput("java", 3);
         System.out.println(exampleWord2);
+
+        String exampleWord3 = mainInstance.middleThree("solving");
+        System.out.println(exampleWord3);
 
     }
 
