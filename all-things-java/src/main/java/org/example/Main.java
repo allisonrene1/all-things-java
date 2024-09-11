@@ -142,19 +142,25 @@ public class Main {
 
     }
 
-    /*
-	 Given a string and an int n, return a string made of the first and last n chars from the string. The
-	 string length will be at least n.
-	 nTwice("Hello", 2) → "Helo"
-	 nTwice("Chocolate", 3) → "Choate"
-	 nTwice("Chocolate", 1) → "Ce"
-	 */
 
     public String nTwice(String word, int number) {
 
         String firstOutput = word.substring(0, number);
         String secondOutput = word.substring(word.length() - number);
         return firstOutput + secondOutput;
+
+    }
+    
+
+    public String twoCharOutput(String word, int number) {
+
+        if(number + 2 > word.length()) {
+            return word.substring(0, 2);
+        } else {
+            String output = word.substring(number, number + 2);
+            return output;
+
+        }
 
     }
 
@@ -166,6 +172,9 @@ public class Main {
 
        String exampleWord1 = mainInstance.nTwice("chocolate", 1);
         System.out.println(exampleWord1);
+
+        String exampleWord2 = mainInstance.twoCharOutput("java", 3);
+        System.out.println(exampleWord2);
 
     }
 
