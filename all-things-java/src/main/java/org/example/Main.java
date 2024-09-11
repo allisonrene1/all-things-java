@@ -171,7 +171,7 @@ public class Main {
         return newOuput;
 
     }
-    
+
 
     public int largestValue(List<Integer> numbers) {
 
@@ -185,6 +185,18 @@ public class Main {
         }
         return largestNumber;
 
+    }
+    
+    public List<Integer> oddOnly(int[] arrayOfIntegers) {
+
+        List<Integer> myNewList = new ArrayList<>();
+
+        for(int i = 0; i < arrayOfIntegers.length; i++) {
+            if(arrayOfIntegers[i] % 2 == 1) {
+                myNewList.add(arrayOfIntegers[i]);
+            }
+        }
+        return myNewList;
     }
 
 
@@ -204,6 +216,12 @@ public class Main {
         List<Integer> exampleNumbers = new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997));
         int exampleNumbers2 = mainInstance.largestValue(exampleNumbers);
         System.out.println(exampleNumbers2);
+
+       int[] exampleNumbers3 = {1143, 555, 7, 1772, 9953, 643};
+       List<Integer> exampleNumbers4 = mainInstance.oddOnly(exampleNumbers3);
+        System.out.println(exampleNumbers4);
+
+
 
 
     }
