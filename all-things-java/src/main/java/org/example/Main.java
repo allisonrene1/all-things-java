@@ -164,7 +164,6 @@ public class Main {
 
     }
 
-
     public String middleThree(String word) {
 
         int middleStart = word.length() / 2;
@@ -172,7 +171,21 @@ public class Main {
         return newOuput;
 
     }
+    
 
+    public int largestValue(List<Integer> numbers) {
+
+        int largestNumber = 0;
+
+
+        for(int i = 0; i < numbers.size(); i++) {
+            if(numbers.get(i) > largestNumber) {
+                largestNumber = numbers.get(i);
+            }
+        }
+        return largestNumber;
+
+    }
 
 
     public static void main(String[] args) {
@@ -187,6 +200,11 @@ public class Main {
 
         String exampleWord3 = mainInstance.middleThree("solving");
         System.out.println(exampleWord3);
+
+        List<Integer> exampleNumbers = new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997));
+        int exampleNumbers2 = mainInstance.largestValue(exampleNumbers);
+        System.out.println(exampleNumbers2);
+
 
     }
 
