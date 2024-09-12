@@ -198,7 +198,7 @@ public class Main {
         }
         return myNewList;
     }
-    
+
 
     public boolean foundTwice(List<Integer> listOfIntegers, int value) {
 
@@ -216,6 +216,35 @@ public class Main {
         }
 
     }
+
+    public List<Integer> interWovenList(List<Integer> listOne, List<Integer> listTwo) {
+
+        List<Integer> myNewList = new ArrayList<>();
+
+        int i = 0;
+        int j = 0;
+
+        while(i < listOne.size() && j < listTwo.size()) {
+            myNewList.add(listOne.get(i));
+            myNewList.add(listTwo.get(j));
+            i++;
+            j++;
+        }
+
+        while(i < listOne.size()) {
+            myNewList.add(listOne.get(i));
+            i++;
+        }
+
+        while(j < listTwo.size()) {
+            myNewList.add(listTwo.get(j));
+            j++;
+        }
+
+        return myNewList;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -242,6 +271,11 @@ public class Main {
         List<Integer> exampleNumbers5 = new ArrayList<>(Arrays.asList(6, 8, 10, 11, 13));
         boolean exampleNumbers6 = mainInstance.foundTwice(exampleNumbers5, 5);
         System.out.println(exampleNumbers6);
+
+        List<Integer> exampleNumber7 = new ArrayList<>(Arrays.asList(1, 2, 5, 8, 10));
+        List<Integer> exampleNumber8 = new ArrayList<>(Arrays.asList(4, 5, 6));
+        List<Integer> theResult = mainInstance.interWovenList(exampleNumber7, exampleNumber8);
+        System.out.println(theResult);
 
 
 
