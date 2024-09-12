@@ -6,8 +6,8 @@ public class Main {
 
 
     public boolean has23(int[] nums) {
-        for(int number : nums) {
-            if(number == 2 || number == 3) {
+        for (int number : nums) {
+            if (number == 2 || number == 3) {
                 return true;
             }
         }
@@ -35,7 +35,7 @@ public class Main {
 
         List<String> newArrayList = new ArrayList<>();
 
-        for(int i = 0; i < words.length; i++) {
+        for (int i = 0; i < words.length; i++) {
             newArrayList.add(words[i]);
         }
 
@@ -47,7 +47,7 @@ public class Main {
 
         String[] myNewString = new String[words.size()];
 
-        for(int i = 0; i < words.size(); i++) {
+        for (int i = 0; i < words.size(); i++) {
             myNewString[i] = words.get(i);
         }
 
@@ -59,8 +59,8 @@ public class Main {
 
         List<String> myArrayList = new ArrayList<>();
 
-        for(int i = 0; i < words.length; i++) {
-            if(words[i].length() != 4) {
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() != 4) {
                 myArrayList.add(words[i]);
             }
         }
@@ -71,7 +71,7 @@ public class Main {
 
         List<Double> myArrayList = new ArrayList<>();
 
-        for(int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             myArrayList.add((double) numbers[i] / 2);
         }
 
@@ -91,17 +91,17 @@ public class Main {
     }
 
     public double isItOnSale(Map<String, Double> itemsOnSale, String itemNumber) {
-        if(itemNumber == null || itemNumber.isEmpty()) {
+        if (itemNumber == null || itemNumber.isEmpty()) {
             return 0.0;
         }
 
         Map<String, Double> caseSensitive = new HashMap<>();
-        for(Map.Entry<String, Double> entry : itemsOnSale.entrySet()) {
+        for (Map.Entry<String, Double> entry : itemsOnSale.entrySet()) {
             caseSensitive.put(entry.getKey().toLowerCase(), entry.getValue());
         }
 
         String lowerCaseItemNumber = itemNumber.toLowerCase();
-        if(caseSensitive.containsKey(lowerCaseItemNumber)) {
+        if (caseSensitive.containsKey(lowerCaseItemNumber)) {
             return caseSensitive.get(lowerCaseItemNumber);
         }
         return 0.0;
@@ -110,7 +110,7 @@ public class Main {
 
     public String extraEnd(String str) {
 
-        if(str.length() <= 2) {
+        if (str.length() <= 2) {
             return str + str + str;
         } else {
 
@@ -124,7 +124,7 @@ public class Main {
 
     public String firstTwo(String word) {
 
-        if(word.length() < 2) {
+        if (word.length() < 2) {
             return word;
         } else {
             return word.substring(0, 2);
@@ -134,7 +134,7 @@ public class Main {
 
     public String comboString(String firstWord, String secondWord) {
 
-        if(firstWord.length() > secondWord.length()) {
+        if (firstWord.length() > secondWord.length()) {
             return secondWord + firstWord + secondWord;
         } else {
             return firstWord + secondWord + firstWord;
@@ -154,7 +154,7 @@ public class Main {
 
     public String twoCharOutput(String word, int number) {
 
-        if(number + 2 > word.length()) {
+        if (number + 2 > word.length()) {
             return word.substring(0, 2);
         } else {
             String output = word.substring(number, number + 2);
@@ -167,7 +167,7 @@ public class Main {
     public String middleThree(String word) {
 
         int middleStart = word.length() / 2;
-        String newOuput = word.substring(middleStart -1, middleStart + 2);
+        String newOuput = word.substring(middleStart - 1, middleStart + 2);
         return newOuput;
 
     }
@@ -178,8 +178,8 @@ public class Main {
         int largestNumber = 0;
 
 
-        for(int i = 0; i < numbers.size(); i++) {
-            if(numbers.get(i) > largestNumber) {
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) > largestNumber) {
                 largestNumber = numbers.get(i);
             }
         }
@@ -191,8 +191,8 @@ public class Main {
 
         List<Integer> myNewList = new ArrayList<>();
 
-        for(int i = 0; i < arrayOfIntegers.length; i++) {
-            if(arrayOfIntegers[i] % 2 == 1) {
+        for (int i = 0; i < arrayOfIntegers.length; i++) {
+            if (arrayOfIntegers[i] % 2 == 1) {
                 myNewList.add(arrayOfIntegers[i]);
             }
         }
@@ -204,12 +204,12 @@ public class Main {
 
         int counter = 0;
 
-        for(int i = 0; i < listOfIntegers.size(); i++) {
-            if(listOfIntegers.get(i) == value) {
+        for (int i = 0; i < listOfIntegers.size(); i++) {
+            if (listOfIntegers.get(i) == value) {
                 counter++;
             }
         }
-        if(counter >= 2) {
+        if (counter >= 2) {
             return true;
         } else {
             return false;
@@ -224,32 +224,65 @@ public class Main {
         int i = 0;
         int j = 0;
 
-        while(i < listOne.size() && j < listTwo.size()) {
+        while (i < listOne.size() && j < listTwo.size()) {
             myNewList.add(listOne.get(i));
             myNewList.add(listTwo.get(j));
             i++;
             j++;
         }
 
-        while(i < listOne.size()) {
+        while (i < listOne.size()) {
             myNewList.add(listOne.get(i));
             i++;
         }
 
-        while(j < listTwo.size()) {
+        while (j < listTwo.size()) {
             myNewList.add(listTwo.get(j));
             j++;
         }
 
         return myNewList;
+
     }
+    
 
+    public double isItOnSaleTho(Map<String, Double> itemNames, String itemNumber) {
+        if(itemNumber == null || itemNumber.isEmpty()) {
+            return 0.0;
+        }
 
+        Map<String, Double> checkCaseSensitive = new HashMap<>();
+        for(Map.Entry<String, Double> saleItem : itemNames.entrySet()) {
+            checkCaseSensitive.put(saleItem.getKey().toLowerCase(), saleItem.getValue());
+        }
+
+        String lowerCaseItemNumber = itemNumber.toLowerCase();
+        if(checkCaseSensitive.containsKey(lowerCaseItemNumber)) {
+            return checkCaseSensitive.get(lowerCaseItemNumber);
+        }
+        return 0.0;
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+
+        Map<String, Double> exampleOutput = new HashMap<>();
+        exampleOutput.put("KITCHEN4001", 0.20);
+        exampleOutput.put("GARAGE1070", 0.15);
+        exampleOutput.put("LIVINGROOM", 0.10);
+
+        String itemNumberExample = "GARAGE1070";
+
+        double finalResult = mainInstance.isItOnSaleTho(exampleOutput, itemNumberExample);
+        System.out.println(finalResult);
+
+
+
+
+
 
        String exampleWord1 = mainInstance.nTwice("chocolate", 1);
         System.out.println(exampleWord1);
