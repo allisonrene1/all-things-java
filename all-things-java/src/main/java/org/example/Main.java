@@ -261,7 +261,7 @@ public class Main {
         }
         return 0.0;
     }
-    
+
 
 
     public List<String> fizzBuzzList(int[] integers) {
@@ -284,6 +284,37 @@ public class Main {
 
     }
 
+    /*
+     * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
+     * but only if Paul has less than $10.
+     *
+     * Note, monetary amounts are specified in cents: penny=1, nickel=5, ... $1=100, ... $10=1000, ...
+     *
+     * robPeterToPayPaul({"Peter": 2000, "Paul": 99}) → {"Peter": 1000, "Paul": 1099}
+     * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
+     * robPeterToPayPaul({"Peter": 101, "Paul": 500}) → {"Peter": 51, "Paul": 550}
+     * robPeterToPayPaul({"Peter": 0, "Paul": 500}) → {"Peter": 0, "Paul": 500}
+     *
+     */
+
+    public Map<String, Integer> peterToPayPaul(Map<String, Integer> theMoney) {
+
+
+        if(theMoney.containsKey("Peter") && theMoney.containsKey("Paul")) {
+            int petersMoney = theMoney.get("Peter");
+            int paulsMoney = theMoney.get("Paul");
+
+            if(petersMoney > 0 && paulsMoney < 1000) {
+                int transferMoney = petersMoney / 2;
+                theMoney.put("Paul", paulsMoney + transferMoney);
+                theMoney.put("Peter", petersMoney - transferMoney);
+            }
+
+        }
+
+        return theMoney;
+    }
+
 
     public static void main(String[] args) {
 
@@ -303,6 +334,14 @@ public class Main {
         int[] arrayOfInts = {7, 8, 9, 10, 11, 12, 13, 14, 15};
         List<String> exampleInts = mainInstance.fizzBuzzList(arrayOfInts);
         System.out.println(exampleInts);
+
+        Map<String, Integer> exampleMoney = new HashMap<>();
+        exampleMoney.put("Peter", 101);
+        exampleMoney.put("Paul", 500);
+
+        Map<String, Integer> theResult = mainInstance.peterToPayPaul(exampleMoney);
+        System.out.println(theResult);
+
 
     }
 
