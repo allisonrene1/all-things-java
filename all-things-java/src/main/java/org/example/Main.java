@@ -244,7 +244,6 @@ public class Main {
         return myNewList;
 
     }
-    
 
     public double isItOnSaleTho(Map<String, Double> itemNames, String itemNumber) {
         if(itemNumber == null || itemNumber.isEmpty()) {
@@ -261,6 +260,28 @@ public class Main {
             return checkCaseSensitive.get(lowerCaseItemNumber);
         }
         return 0.0;
+    }
+    
+
+
+    public List<String> fizzBuzzList(int[] integers) {
+
+        List<String> fizzBuzzList = new ArrayList<>();
+
+        for(int i = 0; i < integers.length; i ++) {
+            if(integers[i] % 3 == 0 && integers[i] % 5 == 0) {
+                fizzBuzzList.add("FizzBuzz");
+            } else if (integers[i] % 5 == 0) {
+                fizzBuzzList.add("Buzz");
+            } else if(integers[i] % 3 == 0) {
+                fizzBuzzList.add("Fizz");
+            } else {
+                fizzBuzzList.add(String.valueOf(integers[i]));
+            }
+        }
+
+        return fizzBuzzList;
+
     }
 
 
@@ -279,39 +300,9 @@ public class Main {
         double finalResult = mainInstance.isItOnSaleTho(exampleOutput, itemNumberExample);
         System.out.println(finalResult);
 
-
-
-
-
-
-       String exampleWord1 = mainInstance.nTwice("chocolate", 1);
-        System.out.println(exampleWord1);
-
-        String exampleWord2 = mainInstance.twoCharOutput("java", 3);
-        System.out.println(exampleWord2);
-
-        String exampleWord3 = mainInstance.middleThree("solving");
-        System.out.println(exampleWord3);
-
-        List<Integer> exampleNumbers = new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997));
-        int exampleNumbers2 = mainInstance.largestValue(exampleNumbers);
-        System.out.println(exampleNumbers2);
-
-       int[] exampleNumbers3 = {1143, 555, 7, 1772, 9953, 643};
-       List<Integer> exampleNumbers4 = mainInstance.oddOnly(exampleNumbers3);
-        System.out.println(exampleNumbers4);
-
-        List<Integer> exampleNumbers5 = new ArrayList<>(Arrays.asList(6, 8, 10, 11, 13));
-        boolean exampleNumbers6 = mainInstance.foundTwice(exampleNumbers5, 5);
-        System.out.println(exampleNumbers6);
-
-        List<Integer> exampleNumber7 = new ArrayList<>(Arrays.asList(1, 2, 5, 8, 10));
-        List<Integer> exampleNumber8 = new ArrayList<>(Arrays.asList(4, 5, 6));
-        List<Integer> theResult = mainInstance.interWovenList(exampleNumber7, exampleNumber8);
-        System.out.println(theResult);
-
-
-
+        int[] arrayOfInts = {7, 8, 9, 10, 11, 12, 13, 14, 15};
+        List<String> exampleInts = mainInstance.fizzBuzzList(arrayOfInts);
+        System.out.println(exampleInts);
 
     }
 
