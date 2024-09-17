@@ -314,11 +314,27 @@ public class Main {
 
         return theMoney;
     }
+    
+
+    public int[] makeLast(int[] numbers) {
+
+        int[] newArrayNums = new int[numbers.length * 2];
+
+        newArrayNums[newArrayNums.length - 1] = numbers[numbers.length -1];
+
+        return newArrayNums;
+
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+
+       int[] exampleNumbers = {4, 5, 6};
+       int[] numbersResult = mainInstance.makeLast(exampleNumbers);
+        System.out.println(Arrays.toString(numbersResult));
 
 
         Map<String, Double> exampleOutput = new HashMap<>();
