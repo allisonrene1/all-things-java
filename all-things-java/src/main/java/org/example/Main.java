@@ -314,7 +314,7 @@ public class Main {
 
         return theMoney;
     }
-    
+
 
     public int[] makeLast(int[] numbers) {
 
@@ -325,11 +325,26 @@ public class Main {
         return newArrayNums;
 
     }
+    
+
+
+    public int[] makeEnds(int[] numbers) {
+
+       int firstHalf = numbers[0];
+       int secondHalf = numbers[numbers.length - 1];
+       int[] finalResult = {firstHalf, secondHalf};
+       return finalResult;
+
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+        int[] exampleNumbers1 = {7, 4, 6, 2};
+        int[] exampleNumbers1Result = mainInstance.makeEnds(exampleNumbers1);
+        System.out.println(Arrays.toString(exampleNumbers1Result));
 
 
        int[] exampleNumbers = {4, 5, 6};
