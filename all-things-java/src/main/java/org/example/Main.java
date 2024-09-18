@@ -370,7 +370,7 @@ public class Main {
     return "something isn't working";
 
     }
-    
+
 
 
     public boolean evenlySpaced(int a, int b, int c){
@@ -403,58 +403,29 @@ public class Main {
             arr[i] = temp;
         }
     }
+    
+
+
+    public int[] fix23(int[] numbers) {
+
+        for(int i = 0; i < numbers.length; i++) {
+            if(numbers[i] == 2) {
+                if(numbers[i] + 1 == 3) {
+                    numbers[i + 1] = 0;
+                }
+            }
+        }
+        return numbers;
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-
-       boolean evenSpacedAnswer = mainInstance.evenlySpaced(4, 6, 3);
-        System.out.println(evenSpacedAnswer);
-
-
-
-       int[] binaryArray = {22, 33, 44, 45, 50, 63, 66, 68, 70, 73, 76, 77, 81, 83};
-       int binaryValue = 100;
-       String theResults = mainInstance.binarySearch(binaryArray, binaryValue);
-        System.out.println(theResults);
-
-
-        int[] exampleNumbers1 = {7, 4, 6, 2};
-        int[] exampleNumbers1Result = mainInstance.makeEnds(exampleNumbers1);
-        System.out.println(Arrays.toString(exampleNumbers1Result));
-
-        int[] exampleNumbers2 = {3, 3};
-        boolean resultYeah = mainInstance.double23(exampleNumbers2);
-        System.out.println(resultYeah);
-
-
-       int[] exampleNumbers = {4, 5, 6};
-       int[] numbersResult = mainInstance.makeLast(exampleNumbers);
-        System.out.println(Arrays.toString(numbersResult));
-
-
-        Map<String, Double> exampleOutput = new HashMap<>();
-        exampleOutput.put("KITCHEN4001", 0.20);
-        exampleOutput.put("GARAGE1070", 0.15);
-        exampleOutput.put("LIVINGROOM", 0.10);
-
-        String itemNumberExample = "GARAGE1070";
-
-        double finalResult = mainInstance.isItOnSaleTho(exampleOutput, itemNumberExample);
-        System.out.println(finalResult);
-
-        int[] arrayOfInts = {7, 8, 9, 10, 11, 12, 13, 14, 15};
-        List<String> exampleInts = mainInstance.fizzBuzzList(arrayOfInts);
-        System.out.println(exampleInts);
-
-        Map<String, Integer> exampleMoney = new HashMap<>();
-        exampleMoney.put("Peter", 101);
-        exampleMoney.put("Paul", 500);
-
-        Map<String, Integer> theResult = mainInstance.peterToPayPaul(exampleMoney);
-        System.out.println(theResult);
+        int[] sampleNumbers = {2, 3, 5};
+        int[] finalAnswer = mainInstance.fix23(sampleNumbers);
+        System.out.println(Arrays.toString(finalAnswer));
 
 
     }
