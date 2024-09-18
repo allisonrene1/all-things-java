@@ -325,7 +325,6 @@ public class Main {
         return newArrayNums;
 
     }
-    
 
 
     public int[] makeEnds(int[] numbers) {
@@ -338,13 +337,59 @@ public class Main {
     }
 
 
+    public boolean double23(int[] numbers) {
+
+        if(numbers[0] == 2 && numbers[1] == 2 || numbers[0] == 3 || numbers[1] == 3) {
+        return true;
+        }
+        return false;
+
+    }
+
+    // cut the array in half and search both to find the value, don't go sequentially
+
+    public String binarySearch(int[] numbers, int value) {
+
+        int lowIndex = 0;
+        int highIndex = numbers.length - 1;
+        boolean isFound = false;
+        while (lowIndex <= highIndex && !isFound){
+            int middle = ((highIndex - lowIndex) / 2) + lowIndex;
+            if (value < numbers[middle]){
+                highIndex = middle - 1;
+            } else if (value > numbers[middle]){
+                lowIndex = middle + 1;
+            } else {
+                return "Found it!";
+            }
+        }
+        if (!isFound){
+            return "Didn't find it!";
+        }
+
+    return "something isn't working";
+
+    }
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
+
+       int[] binaryArray = {22, 33, 44, 45, 50, 63, 66, 68, 70, 73, 76, 77, 81, 83};
+       int binaryValue = 100;
+       String theResults = mainInstance.binarySearch(binaryArray, binaryValue);
+        System.out.println(theResults);
+
+
         int[] exampleNumbers1 = {7, 4, 6, 2};
         int[] exampleNumbers1Result = mainInstance.makeEnds(exampleNumbers1);
         System.out.println(Arrays.toString(exampleNumbers1Result));
+
+        int[] exampleNumbers2 = {3, 3};
+        boolean resultYeah = mainInstance.double23(exampleNumbers2);
+        System.out.println(resultYeah);
 
 
        int[] exampleNumbers = {4, 5, 6};
