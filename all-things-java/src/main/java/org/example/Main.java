@@ -370,11 +370,49 @@ public class Main {
     return "something isn't working";
 
     }
+    
+
+
+    public boolean evenlySpaced(int a, int b, int c){
+
+        int[] array = {a, b, c};
+
+        sort(array);
+
+        return (array[1] - array[0] == array[2] - array[1]);
+
+    }
+
+    void sort(int arr[])
+    {
+        int n = arr.length;
+
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+
+       boolean evenSpacedAnswer = mainInstance.evenlySpaced(4, 6, 3);
+        System.out.println(evenSpacedAnswer);
+
 
 
        int[] binaryArray = {22, 33, 44, 45, 50, 63, 66, 68, 70, 73, 76, 77, 81, 83};
