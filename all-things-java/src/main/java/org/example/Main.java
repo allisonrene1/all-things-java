@@ -403,7 +403,7 @@ public class Main {
             arr[i] = temp;
         }
     }
-    
+
 
 
     public int[] fix23(int[] numbers) {
@@ -418,10 +418,28 @@ public class Main {
         return numbers;
     }
 
+    
+
+
+    public boolean noTriples(int[] numbers) {
+
+        for(int i = 0; i < numbers.length; i++) {
+            if(numbers[i] == numbers[i + 1] && numbers[i] == numbers[i + 2]) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int[] sampleNumbers1 = {1, 1, 2, 2, 1};
+       boolean theResult = mainInstance.noTriples(sampleNumbers1);
+        System.out.println(theResult);
 
         int[] sampleNumbers = {2, 3, 5};
         int[] finalAnswer = mainInstance.fix23(sampleNumbers);
