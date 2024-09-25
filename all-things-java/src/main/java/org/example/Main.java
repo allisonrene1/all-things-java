@@ -418,12 +418,12 @@ public class Main {
         return numbers;
     }
 
-    
+
 
 
     public boolean noTriples(int[] numbers) {
 
-        for(int i = 0; i < numbers.length; i++) {
+        for(int i = 0; i < numbers.length - 2; i++) {
             if(numbers[i] == numbers[i + 1] && numbers[i] == numbers[i + 2]) {
                 return false;
             }
@@ -431,11 +431,25 @@ public class Main {
         return true;
 
     }
+    
 
+
+    public int[] swapEnds(int[] numbers) {
+
+        int tempHolder = numbers[0];
+        numbers[0] = numbers[numbers.length - 1];
+        numbers[numbers.length - 1] = tempHolder;
+        return numbers;
+
+    }
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int[] sampleNumbers2 = {2, 1};
+       int[] theResult1 = mainInstance.swapEnds(sampleNumbers2);
+        System.out.println(Arrays.toString(theResult1));
 
        int[] sampleNumbers1 = {1, 1, 2, 2, 1};
        boolean theResult = mainInstance.noTriples(sampleNumbers1);
