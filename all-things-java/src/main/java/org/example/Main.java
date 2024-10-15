@@ -420,7 +420,6 @@ public class Main {
 
 
 
-
     public boolean noTriples(int[] numbers) {
 
         for(int i = 0; i < numbers.length - 2; i++) {
@@ -431,7 +430,6 @@ public class Main {
         return true;
 
     }
-    
 
 
     public int[] swapEnds(int[] numbers) {
@@ -442,10 +440,29 @@ public class Main {
         return numbers;
 
     }
+    
+
+
+    public boolean arrayFront9(int[] nums) {
+
+        int theLimit = Math.min(nums.length, 4);
+
+        for(int i = 0; i < theLimit; i++) {
+            if(nums[i] == 9) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int[] sampleNumbers3 = {9, 0};
+       boolean finalResult = mainInstance.arrayFront9(sampleNumbers3);
+        System.out.println(finalResult);
 
        int[] sampleNumbers2 = {2, 1};
        int[] theResult1 = mainInstance.swapEnds(sampleNumbers2);
