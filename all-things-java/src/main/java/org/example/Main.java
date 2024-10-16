@@ -440,7 +440,7 @@ public class Main {
         return numbers;
 
     }
-    
+
 
 
     public boolean arrayFront9(int[] nums) {
@@ -456,25 +456,32 @@ public class Main {
         return false;
     }
 
+    
+
+    public boolean foundIntTwice(List<Integer> numbers, int value) {
+
+        int counter = 0;
+        for(int i = 0; i < numbers.size(); i++)
+                if(value == numbers.get(i)) {
+                    counter++;
+                }
+                if(counter >= 2) {
+                    return true;
+                }
+        return false;
+
+        };
+
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-       int[] sampleNumbers3 = {9, 0};
-       boolean finalResult = mainInstance.arrayFront9(sampleNumbers3);
-        System.out.println(finalResult);
+       List<Integer> sampleNumbers4 = Arrays.asList(5, 7, 9, 5, 11);
+       boolean sampleResult = mainInstance.foundIntTwice(sampleNumbers4, 5);
+        System.out.println(sampleResult);
 
-       int[] sampleNumbers2 = {2, 1};
-       int[] theResult1 = mainInstance.swapEnds(sampleNumbers2);
-        System.out.println(Arrays.toString(theResult1));
-
-       int[] sampleNumbers1 = {1, 1, 2, 2, 1};
-       boolean theResult = mainInstance.noTriples(sampleNumbers1);
-        System.out.println(theResult);
-
-        int[] sampleNumbers = {2, 3, 5};
-        int[] finalAnswer = mainInstance.fix23(sampleNumbers);
-        System.out.println(Arrays.toString(finalAnswer));
 
 
     }
