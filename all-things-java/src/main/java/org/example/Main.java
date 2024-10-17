@@ -471,7 +471,7 @@ public class Main {
         return false;
 
         };
-    
+
 
     public String comboStrings(String a, String b) {
 
@@ -481,13 +481,32 @@ public class Main {
             return a + b + a;
         }
 
-
     }
+
+
+    public int countXXX(String str) {
+
+        int countOf = 0;
+
+        for(int i = 0; i < str.length() - 1; i++) {
+            if(str.charAt(i) == 'x' && str.charAt(i + 1) == 'x') {
+                countOf++;
+            }
+        }
+
+        return countOf;
+    }
+
+
+    
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int resulties = mainInstance.countXXX("xxxx");
+        System.out.println(resulties);
 
        String result = mainInstance.comboStrings("aaa", "b");
         System.out.println(result);
