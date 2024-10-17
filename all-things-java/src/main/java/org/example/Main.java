@@ -456,7 +456,7 @@ public class Main {
         return false;
     }
 
-    
+
 
     public boolean foundIntTwice(List<Integer> numbers, int value) {
 
@@ -471,12 +471,26 @@ public class Main {
         return false;
 
         };
+    
 
+    public String comboStrings(String a, String b) {
+
+        if(a.length() > b.length()) {
+            return b + a + b;
+        } else {
+            return a + b + a;
+        }
+
+
+    }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       String result = mainInstance.comboStrings("aaa", "b");
+        System.out.println(result);
 
        List<Integer> sampleNumbers4 = Arrays.asList(5, 7, 9, 5, 11);
        boolean sampleResult = mainInstance.foundIntTwice(sampleNumbers4, 5);
