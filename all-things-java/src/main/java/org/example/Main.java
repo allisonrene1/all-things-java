@@ -496,14 +496,30 @@ public class Main {
 
         return countOf;
     }
-
-
     
+
+
+    public boolean array123(int[] nums) {
+
+        for(int i = 0; i < nums.length; i++) {
+
+            if(nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int[] someNumbers = {1, 1, 2, 4, 3};
+       boolean resultieeees = mainInstance.array123(someNumbers);
+        System.out.println(resultieeees);
 
        int resulties = mainInstance.countXXX("xxxx");
         System.out.println(resulties);
