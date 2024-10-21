@@ -498,6 +498,26 @@ public class Main {
     }
     
 
+    public boolean more14(int[] nums) {
+
+        int counter1 = 0;
+        int counter4 = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] == 1) {
+                counter1++;
+            } else if(nums[i] == 4) {
+                counter4++;
+            }
+        }
+
+        if(counter1 > counter4) {
+            return true;
+        }
+
+        return false;
+    }
+
 
     public boolean array123(int[] nums) {
 
@@ -517,19 +537,11 @@ public class Main {
 
        Main mainInstance = new Main();
 
-       int[] someNumbers = {1, 1, 2, 4, 3};
-       boolean resultieeees = mainInstance.array123(someNumbers);
-        System.out.println(resultieeees);
+       int[] exampleNums = {1, 4, 1, 4};
+       boolean theResults = mainInstance.more14(exampleNums);
+        System.out.println(theResults);
 
-       int resulties = mainInstance.countXXX("xxxx");
-        System.out.println(resulties);
 
-       String result = mainInstance.comboStrings("aaa", "b");
-        System.out.println(result);
-
-       List<Integer> sampleNumbers4 = Arrays.asList(5, 7, 9, 5, 11);
-       boolean sampleResult = mainInstance.foundIntTwice(sampleNumbers4, 5);
-        System.out.println(sampleResult);
 
 
 
