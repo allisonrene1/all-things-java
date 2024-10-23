@@ -496,7 +496,7 @@ public class Main {
 
         return countOf;
     }
-    
+
 
     public boolean more14(int[] nums) {
 
@@ -531,11 +531,52 @@ public class Main {
         return false;
     }
 
+//    Create a method called no4LetterWords that takes in an array of strings called strings.
+//    Return a List containing the elements of strings in the same order except for any that contain exactly 4 characters.
+//
+//    For example:
+//
+//    no4LetterWords( {"Train", "Boat", "Car"} ) →   ["Train", "Car"]
+//    no4LetterWords( {"Red", "White", "Blue"} ) →   ["Red", "White"]
 
+
+    public List<String> no4LetterWordss(String[] strings) {
+
+        List<String> newList = new ArrayList<>();
+
+        for(int i = 0; i < strings.length; i++) {
+            if(strings[i].length() < 4 || strings[i].length() > 4) {
+                newList.add(strings[i]);
+            }
+        }
+
+
+        return newList;
+    }
+
+    
+
+    public int sumOdds() {
+        int number = 0;
+
+        for(int i = 1; i < 101; i++) {
+
+            if(i % 2 == 1) {
+                number = number + i;
+            }
+
+        }
+
+        return number;
+    }
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       String[] exampleStrings = {"Red", "White", "Blue"};
+       List<String> theResultss = mainInstance.no4LetterWordss(exampleStrings);
+        System.out.println(theResultss);
 
        int[] exampleNums = {1, 4, 1, 4};
        boolean theResults = mainInstance.more14(exampleNums);
