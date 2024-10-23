@@ -554,25 +554,44 @@ public class Main {
         return newList;
     }
 
-    
 
     public int sumOdds() {
         int number = 0;
-
         for(int i = 1; i < 101; i++) {
 
             if(i % 2 == 1) {
                 number = number + i;
             }
+        }
+        return number;
+    }
+
+
+    public int sumOddsBetweenValues(int start, int end) {
+
+        int sumOfOdds = 0;
+
+
+        for(int i = start; i <= end; i++) {
+
+            if(i % 2 == 1) {
+                sumOfOdds = sumOfOdds + i;
+            }
 
         }
 
-        return number;
+
+        return sumOfOdds;
     }
+
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int theResult1 = mainInstance.sumOddsBetweenValues(18, 18);
+        System.out.println(theResult1);
 
        String[] exampleStrings = {"Red", "White", "Blue"};
        List<String> theResultss = mainInstance.no4LetterWordss(exampleStrings);
