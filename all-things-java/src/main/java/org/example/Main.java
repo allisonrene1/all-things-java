@@ -571,7 +571,6 @@ public class Main {
 
         int sumOfOdds = 0;
 
-
         for(int i = start; i <= end; i++) {
 
             if(i % 2 == 1) {
@@ -579,11 +578,22 @@ public class Main {
             }
 
         }
-
-
         return sumOfOdds;
     }
 
+
+
+    public int[] fzzArray3(int start, int end) {
+
+        int[] newArray = new int[end - start];
+
+        for(int i = 0; i < newArray.length; i++) {
+            newArray[i] = start + i;
+
+        }
+
+        return newArray;
+    }
 
 
     public static void main(String[] args) {
@@ -593,6 +603,9 @@ public class Main {
        int theResult1 = mainInstance.sumOddsBetweenValues(18, 18);
         System.out.println(theResult1);
 
+        int[] theResult2 = mainInstance.fzzArray3(11, 12);
+        System.out.println(Arrays.toString(theResult2));
+
        String[] exampleStrings = {"Red", "White", "Blue"};
        List<String> theResultss = mainInstance.no4LetterWordss(exampleStrings);
         System.out.println(theResultss);
@@ -600,10 +613,6 @@ public class Main {
        int[] exampleNums = {1, 4, 1, 4};
        boolean theResults = mainInstance.more14(exampleNums);
         System.out.println(theResults);
-
-
-
-
 
     }
 
