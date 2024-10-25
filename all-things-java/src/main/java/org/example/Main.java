@@ -596,23 +596,26 @@ public class Main {
     }
 
 
+
+    public boolean isStrictlyIncreasing(int[] numbers) {
+
+
+        for (int i = 0; i < numbers.length - 1; i++) {
+
+            if (numbers[i] >= numbers[i + 1]) {
+                return false;
+            }
+
+        }
+        return true;
+    };
+
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
-
-       int theResult1 = mainInstance.sumOddsBetweenValues(18, 18);
-        System.out.println(theResult1);
-
-        int[] theResult2 = mainInstance.fzzArray3(11, 12);
-        System.out.println(Arrays.toString(theResult2));
-
-       String[] exampleStrings = {"Red", "White", "Blue"};
-       List<String> theResultss = mainInstance.no4LetterWordss(exampleStrings);
-        System.out.println(theResultss);
-
-       int[] exampleNums = {1, 4, 1, 4};
-       boolean theResults = mainInstance.more14(exampleNums);
-        System.out.println(theResults);
+       
 
     }
 
