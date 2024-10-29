@@ -612,10 +612,46 @@ public class Main {
 
 
 
+    public boolean hasBad(String str) {
+
+        if(str.substring(0,2).contains("ba")) {
+            return true;
+        } else if(str.substring(1,3).contains("ba")) {
+            return true;
+        }
+
+        return false;
+    }
+    
+
+    public String reverseString(String str) {
+
+        String newString = "";
+        char character;
+
+        for(int i = 0; i < str.length(); i++) {
+           character = str.charAt(i);
+           newString = character + newString;
+
+        }
+
+
+        return newString;
+    }
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
-       
+
+
+       String theresultss = mainInstance.reverseString("");
+        System.out.println(theresultss);
+
+       String theString = "xxbadxx";
+       boolean theResults = mainInstance.hasBad(theString);
+        System.out.println(theResults);
+
 
     }
 
