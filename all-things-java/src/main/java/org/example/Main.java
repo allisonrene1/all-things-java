@@ -638,7 +638,7 @@ public class Main {
         return newString;
     }
 
-    
+
 
     public String frontTimes(String string, int number) {
 
@@ -654,13 +654,30 @@ public class Main {
                 return repeated;
             }
 
-
     }
+
+    public List<String> reverseList(List<String> strings) {
+
+        List<String> theNewList = new ArrayList<>();
+        
+        for(int i = strings.size() - 1; i >= 0; i--) {
+
+            theNewList.add(strings.get(i));
+
+        }
+
+        return theNewList;
+    }
+
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+
+       List<String> exampleStrings = new ArrayList<>(Arrays.asList("jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"));
+        System.out.println(mainInstance.reverseList(exampleStrings));
 
         String finalResults = mainInstance.frontTimes("Chocolate", 3);
         System.out.println(finalResults);
