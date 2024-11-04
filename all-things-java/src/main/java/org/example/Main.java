@@ -622,7 +622,7 @@ public class Main {
 
         return false;
     }
-    
+
 
     public String reverseString(String str) {
 
@@ -635,14 +635,35 @@ public class Main {
 
         }
 
-
         return newString;
+    }
+
+    
+
+    public String frontTimes(String string, int number) {
+
+        String newString = "";
+
+
+            if(string.length() < 3) {
+                String repeated = string.repeat(number);
+                return repeated;
+            } else {
+                newString = string.substring(0, 3);
+                String repeated = newString.repeat(number);
+                return repeated;
+            }
+
+
     }
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+        String finalResults = mainInstance.frontTimes("Chocolate", 3);
+        System.out.println(finalResults);
 
 
        String theresultss = mainInstance.reverseString("");
