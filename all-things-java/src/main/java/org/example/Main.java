@@ -659,7 +659,7 @@ public class Main {
     public List<String> reverseList(List<String> strings) {
 
         List<String> theNewList = new ArrayList<>();
-        
+
         for(int i = strings.size() - 1; i >= 0; i--) {
 
             theNewList.add(strings.get(i));
@@ -671,10 +671,40 @@ public class Main {
 
 
 
+
+//    Create a method called list2Array that takes in a List of strings called strings.
+//    Return an array containing the same strings in the same order.
+//    Avoid using a standard library method that does the conversion for you.
+//
+//    For example:
+//
+//    list2Array( ["aa", "ab", "ac"] ) →   {"aa", "ab", "ac"}
+//    list2Array( ["as", "df", "jk"] ) →   {"as", "df", "jk"}
+//    list2Array( ["aaa", "bbb", "ccc", "ddd"] ) →   {"aaa", "bbb", "ccc", "ddd"}
+
+
+    public String[] list2Arrays(List<String> strings) {
+
+        String[] newStringArray = new String[strings.size()];
+
+        for(int i = 0; i < strings.size(); i++) {
+
+            newStringArray[i] = strings.get(i);
+
+        }
+
+        return newStringArray;
+
+    }
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
+       List<String> someExamples = new ArrayList<>(Arrays.asList("as", "df", "jk"));
+       String[] finalOutput = mainInstance.list2Arrays(someExamples);
+        System.out.println(Arrays.toString(finalOutput));
 
        List<String> exampleStrings = new ArrayList<>(Arrays.asList("jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"));
         System.out.println(mainInstance.reverseList(exampleStrings));
