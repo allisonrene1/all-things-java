@@ -671,18 +671,6 @@ public class Main {
 
 
 
-
-//    Create a method called list2Array that takes in a List of strings called strings.
-//    Return an array containing the same strings in the same order.
-//    Avoid using a standard library method that does the conversion for you.
-//
-//    For example:
-//
-//    list2Array( ["aa", "ab", "ac"] ) →   {"aa", "ab", "ac"}
-//    list2Array( ["as", "df", "jk"] ) →   {"as", "df", "jk"}
-//    list2Array( ["aaa", "bbb", "ccc", "ddd"] ) →   {"aaa", "bbb", "ccc", "ddd"}
-
-
     public String[] list2Arrays(List<String> strings) {
 
         String[] newStringArray = new String[strings.size()];
@@ -697,7 +685,7 @@ public class Main {
 
     }
 
-    
+
     public int findLargest(List<Integer> numbers) {
 
         int largestValue = 0;
@@ -713,10 +701,31 @@ public class Main {
         return largestValue;
     };
 
+    
+    public List<String> distinctValues(List<String> strings) {
+
+        List<String> newStringList = new ArrayList<>();
+
+        for(int i = 0; i < strings.size(); i ++) {
+
+            if(!newStringList.contains(strings.get(i))) {
+                newStringList.add(strings.get(i));
+            }
+
+        }
+
+        return newStringList;
+    }
+
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       List<String> repeatWords = new ArrayList<>(Arrays.asList("red", "yellow", "green", "yellow", "blue", "green", "purple"));
+       List<String> removeWords = mainInstance.distinctValues(repeatWords);
+        System.out.println(removeWords);
 
        List<Integer> numbers = new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627));
        int finalValue = mainInstance.findLargest(numbers);
