@@ -697,10 +697,31 @@ public class Main {
 
     }
 
+    
+    public int findLargest(List<Integer> numbers) {
+
+        int largestValue = 0;
+
+        for(int i = 0; i < numbers.size() -1; i++) {
+
+            if(largestValue < numbers.get(i)) {
+                largestValue = numbers.get(i);
+            }
+
+        }
+
+        return largestValue;
+    };
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       List<Integer> numbers = new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627));
+       int finalValue = mainInstance.findLargest(numbers);
+        System.out.println(finalValue);
+
 
        List<String> someExamples = new ArrayList<>(Arrays.asList("as", "df", "jk"));
        String[] finalOutput = mainInstance.list2Arrays(someExamples);
