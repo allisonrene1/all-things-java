@@ -718,15 +718,6 @@ public class Main {
     }
 
 
-//    Create a method called array2List that takes in a string array called strings.
-//    Return a List containing the elements of strings in the same order.
-//    Avoid using a standard library method that does the conversion for you. For example:
-//
-//    array2List( {"Apple", "Orange", "Banana"} ) →   ["Apple", "Orange", "Banana"]
-//    array2List( {"Red", "Orange", "Yellow"} ) →   ["Red", "Orange", "Yellow"]
-//    array2List( {"Left", "Right", "Forward", "Back"} ) →   ["Left", "Right", "Forward", "Back"]
-
-
     public List<String> array2List(String[] strings) {
 
         List<String> newList = new ArrayList<>();
@@ -740,38 +731,27 @@ public class Main {
         return newList;
 
     }
+    
+
+    public List<Double> arrayInt2ListDouble(int[] integers) {
+
+        List<Double> newDoubleList = new ArrayList<>();
+
+        for(int i = 0; i < integers.length; i++) {
+
+            newDoubleList.add(integers[i] / 2.0);
+
+        }
+
+        return newDoubleList;
+    }
+
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-       List<String> repeatWords = new ArrayList<>(Arrays.asList("red", "yellow", "green", "yellow", "blue", "green", "purple"));
-       List<String> removeWords = mainInstance.distinctValues(repeatWords);
-        System.out.println(removeWords);
-
-       List<Integer> numbers = new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627));
-       int finalValue = mainInstance.findLargest(numbers);
-        System.out.println(finalValue);
-
-
-       List<String> someExamples = new ArrayList<>(Arrays.asList("as", "df", "jk"));
-       String[] finalOutput = mainInstance.list2Arrays(someExamples);
-        System.out.println(Arrays.toString(finalOutput));
-
-       List<String> exampleStrings = new ArrayList<>(Arrays.asList("jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"));
-        System.out.println(mainInstance.reverseList(exampleStrings));
-
-        String finalResults = mainInstance.frontTimes("Chocolate", 3);
-        System.out.println(finalResults);
-
-
-       String theresultss = mainInstance.reverseString("");
-        System.out.println(theresultss);
-
-       String theString = "xxbadxx";
-       boolean theResults = mainInstance.hasBad(theString);
-        System.out.println(theResults);
 
 
     }
