@@ -761,10 +761,43 @@ public class Main {
     }
 
 
+//    Create a method called blackjack that takes in two integers, a and b.
+//    Return whichever value is nearest to 21 without going over. Return 0 if they both go over.
+//
+//    For example:
+//
+//    blackjack(19, 21) → 21
+//    blackjack(21, 19) → 21
+//    blackjack(19, 22) → 19
+
+    public int blackjack(int a, int b) {
+
+        if(a > 21 && b > 21) {
+            return 0;
+        } else if (a > 21) {
+            return b;
+        } else if (b > 21) {
+            return a;
+        }
+
+        int sumA = 21 - a;
+        int sumB = 21 - b;
+
+        if(sumA < sumB) {
+            return a;
+        } else {
+            return b;
+        }
+
+    }
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       int finalResult = mainInstance.blackjack(16, 17);
+        System.out.println(finalResult);
 
         int[] exampleNumbers = new int[] {7, 1, 2, 3, 4, 9};
         int[] theResult = mainInstance.makeMiddle(exampleNumbers);
