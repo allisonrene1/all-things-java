@@ -701,7 +701,7 @@ public class Main {
         return largestValue;
     };
 
-    
+
     public List<String> distinctValues(List<String> strings) {
 
         List<String> newStringList = new ArrayList<>();
@@ -717,6 +717,29 @@ public class Main {
         return newStringList;
     }
 
+
+//    Create a method called array2List that takes in a string array called strings.
+//    Return a List containing the elements of strings in the same order.
+//    Avoid using a standard library method that does the conversion for you. For example:
+//
+//    array2List( {"Apple", "Orange", "Banana"} ) →   ["Apple", "Orange", "Banana"]
+//    array2List( {"Red", "Orange", "Yellow"} ) →   ["Red", "Orange", "Yellow"]
+//    array2List( {"Left", "Right", "Forward", "Back"} ) →   ["Left", "Right", "Forward", "Back"]
+
+
+    public List<String> array2List(String[] strings) {
+
+        List<String> newList = new ArrayList<>();
+
+        for(int i = 0; i < strings.length; i++) {
+
+            newList.add(strings[i]);
+
+        }
+
+        return newList;
+
+    }
 
 
     public static void main(String[] args) {
