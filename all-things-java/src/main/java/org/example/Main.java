@@ -731,7 +731,7 @@ public class Main {
         return newList;
 
     }
-    
+
 
     public List<Double> arrayInt2ListDouble(int[] integers) {
 
@@ -747,12 +747,28 @@ public class Main {
     }
 
 
+    public int[] makeMiddle(int[] numbers) {
+
+        int[] newNumbers = new int[2];
+
+        int middleOfArray = numbers.length / 2;
+
+      newNumbers[0] = numbers[middleOfArray - 1];
+      newNumbers[1] = numbers[middleOfArray];
+
+
+        return newNumbers;
+    }
+
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-
+        int[] exampleNumbers = new int[] {7, 1, 2, 3, 4, 9};
+        int[] theResult = mainInstance.makeMiddle(exampleNumbers);
+        System.out.println(Arrays.toString(theResult));
 
     }
 
