@@ -814,7 +814,7 @@ public class Main {
         return fizzBuzzString;
     }
 
-    
+
     public int[] fibonacci() {
         int numOne = 0;
         int numTwo = 1;
@@ -847,20 +847,54 @@ public class Main {
     }
 
 
+    public List<Integer> returnIntArray(List<Integer> reverseIntegers) {
+        List<Integer> theReversedList = new ArrayList<>();
+        for(int i = reverseIntegers.size() -1; i >= 0; i--) {
+            theReversedList.add(reverseIntegers.get(i));
+        }
+        return theReversedList;
+    }
+
+
+    public int simpleArraySum(List<Integer> arrayOfIntegers) {
+
+        int finalValue = 0;
+
+        for(int i = 0; i < arrayOfIntegers.size(); i++) {
+
+            finalValue = finalValue + arrayOfIntegers.get(i);
+
+        }
+
+        return finalValue;
+
+    }
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-       int[] results = mainInstance.fibonacci();
-        System.out.println(Arrays.toString(results));
+       List<Integer> exampleNums = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 10, 11));
+       int finalAnswer = mainInstance.simpleArraySum(exampleNums);
+        System.out.println(finalAnswer);
+
+       List<Integer> sampleNumbers = new ArrayList<>(Arrays.asList(1, 4, 3, 2));
+       List<Integer> theResult = mainInstance.returnIntArray(sampleNumbers);
+        System.out.println(theResult);
 
 
-       int finalResult = mainInstance.blackjack(16, 17);
-        System.out.println(finalResult);
+//
+//       int[] results = mainInstance.fibonacci();
+//        System.out.println(Arrays.toString(results));
+//
+//
+//       int finalResult = mainInstance.blackjack(16, 17);
+//        System.out.println(finalResult);
 
-        int[] exampleNumbers = new int[] {7, 1, 2, 3, 4, 9};
-        int[] theResult = mainInstance.makeMiddle(exampleNumbers);
-        System.out.println(Arrays.toString(theResult));
+//        int[] exampleNumbers = new int[] {7, 1, 2, 3, 4, 9};
+//        int[] theResult = mainInstance.makeMiddle(exampleNumbers);
+//        System.out.println(Arrays.toString(theResult));
 
     }
 
