@@ -791,10 +791,36 @@ public class Main {
 
     }
 
+    
+    public String[] fizzBuzz() {
+
+        String[] fizzBuzzString = new String[100];
+
+        for(int i = 0; i < 100; i++) {
+            int value = i + 1;
+
+            if(value % 5 == 0 && value % 3 == 0) {
+                fizzBuzzString[i] = "Fizzbuzz";
+            } else if(value % 3 == 0) {
+                fizzBuzzString[i] = "Fizz";
+            } else if(value % 5 == 0) {
+                fizzBuzzString[i] = "Buzz";
+            } else {
+                fizzBuzzString[i] = String.valueOf(value);
+            }
+
+        }
+
+        return fizzBuzzString;
+    }
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       String[] theResultsss = mainInstance.fizzBuzz();
+        System.out.println(Arrays.toString(theResultsss));
 
        int finalResult = mainInstance.blackjack(16, 17);
         System.out.println(finalResult);
