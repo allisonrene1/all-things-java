@@ -791,7 +791,7 @@ public class Main {
 
     }
 
-    
+
     public String[] fizzBuzz() {
 
         String[] fizzBuzzString = new String[100];
@@ -814,13 +814,46 @@ public class Main {
         return fizzBuzzString;
     }
 
+    
+    public int[] fibonacci() {
+        int numOne = 0;
+        int numTwo = 1;
+        int count = 2;
+
+        while(numOne + numTwo < 2000) {
+            int numThree = numOne + numTwo;
+            numOne = numTwo;
+            numTwo = numThree;
+            count++;
+        }
+
+        int[] fibArray = new int[count];
+        fibArray[0] = 0;
+        fibArray[1] = 1;
+        numOne = 0;
+        numTwo = 1;
+
+        for(int i = 2; i < count; i++) {
+            int numThree = numOne + numTwo;
+
+            fibArray[i] = numThree;
+
+            numOne = numTwo;
+            numTwo = numThree;
+
+        }
+
+        return fibArray;
+    }
+
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-       String[] theResultsss = mainInstance.fizzBuzz();
-        System.out.println(Arrays.toString(theResultsss));
+       int[] results = mainInstance.fibonacci();
+        System.out.println(Arrays.toString(results));
+
 
        int finalResult = mainInstance.blackjack(16, 17);
         System.out.println(finalResult);
