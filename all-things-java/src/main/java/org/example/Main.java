@@ -895,11 +895,29 @@ public class Main {
         return mynewList;
     };
 
+    public long aVeryBigSum(List<Long> ar) {
+
+        long finalResult = 0;
+
+        for(int i = 0; i < ar.size(); i++) {
+            finalResult = finalResult + ar.get(i);
+        }
+
+        return finalResult;
+        
+    }
+
+
+
 
 
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       List<Long> someNumbers = new ArrayList<>(Arrays.asList(1000000001L, 1000000002L, 1000000003L, 1000000004L, 1000000005L));
+       long theAnswer = mainInstance.aVeryBigSum(someNumbers);
+        System.out.println(theAnswer);
 
        List<Integer> listA = new ArrayList<>(Arrays.asList(17, 28, 30));
        List<Integer> listB = new ArrayList<>(Arrays.asList(99, 16, 8));
