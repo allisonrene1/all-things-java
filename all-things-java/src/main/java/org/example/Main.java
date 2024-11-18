@@ -871,30 +871,42 @@ public class Main {
     }
 
 
+
+    public List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+
+        List<Integer> mynewList = new ArrayList<>();
+
+        int countA = 0;
+        int countB = 0;
+
+
+        for(int i = 0; i < a.size(); i++) {
+
+            if(a.get(i) > b.get(i)) {
+                countA++;
+            } else if(b.get(i) > a.get(i)) {
+                countB++;
+
+            }
+        }
+        mynewList.add(countA);
+        mynewList.add(countB);
+
+        return mynewList;
+    };
+
+
+
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
 
-       List<Integer> exampleNums = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 10, 11));
-       int finalAnswer = mainInstance.simpleArraySum(exampleNums);
-        System.out.println(finalAnswer);
+       List<Integer> listA = new ArrayList<>(Arrays.asList(17, 28, 30));
+       List<Integer> listB = new ArrayList<>(Arrays.asList(99, 16, 8));
 
-       List<Integer> sampleNumbers = new ArrayList<>(Arrays.asList(1, 4, 3, 2));
-       List<Integer> theResult = mainInstance.returnIntArray(sampleNumbers);
-        System.out.println(theResult);
+       List<Integer> letsSee = mainInstance.compareTriplets(listA, listB);
+        System.out.println(letsSee);
 
-
-//
-//       int[] results = mainInstance.fibonacci();
-//        System.out.println(Arrays.toString(results));
-//
-//
-//       int finalResult = mainInstance.blackjack(16, 17);
-//        System.out.println(finalResult);
-
-//        int[] exampleNumbers = new int[] {7, 1, 2, 3, 4, 9};
-//        int[] theResult = mainInstance.makeMiddle(exampleNumbers);
-//        System.out.println(Arrays.toString(theResult));
 
     }
 
