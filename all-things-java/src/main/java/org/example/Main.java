@@ -904,9 +904,34 @@ public class Main {
         }
 
         return finalResult;
-        
+
     }
 
+
+    public List<Integer> matchingStrings(List<String> strings, List<String> queries) {
+
+        List<Integer> numberOfQueryMatches = new ArrayList<>();
+
+
+        for(int i = 0; i < queries.size(); i++) {
+
+            String string = queries.get(i);
+            int counter = 0;
+
+            for(int j = 0; j < strings.size(); j++) {
+
+                if(string.equals(strings.get(j))) {
+                    counter++;
+                }
+
+            }
+            numberOfQueryMatches.add(counter);
+
+        }
+
+        return numberOfQueryMatches;
+
+    }
 
 
 
@@ -914,6 +939,11 @@ public class Main {
     public static void main(String[] args) {
 
        Main mainInstance = new Main();
+
+       List<String> someStrings = new ArrayList<>(Arrays.asList("aba", "baba", "aba", "xzxb"));
+       List<String> queryStrings = new ArrayList<>(Arrays.asList("aba", "xzxb", "ab"));
+       List<Integer> finalResult = mainInstance.matchingStrings(someStrings, queryStrings);
+        System.out.println(finalResult);
 
        List<Long> someNumbers = new ArrayList<>(Arrays.asList(1000000001L, 1000000002L, 1000000003L, 1000000004L, 1000000005L));
        long theAnswer = mainInstance.aVeryBigSum(someNumbers);
