@@ -246,34 +246,33 @@ public class Main {
     }
 
     public double isItOnSaleTho(Map<String, Double> itemNames, String itemNumber) {
-        if(itemNumber == null || itemNumber.isEmpty()) {
+        if (itemNumber == null || itemNumber.isEmpty()) {
             return 0.0;
         }
 
         Map<String, Double> checkCaseSensitive = new HashMap<>();
-        for(Map.Entry<String, Double> saleItem : itemNames.entrySet()) {
+        for (Map.Entry<String, Double> saleItem : itemNames.entrySet()) {
             checkCaseSensitive.put(saleItem.getKey().toLowerCase(), saleItem.getValue());
         }
 
         String lowerCaseItemNumber = itemNumber.toLowerCase();
-        if(checkCaseSensitive.containsKey(lowerCaseItemNumber)) {
+        if (checkCaseSensitive.containsKey(lowerCaseItemNumber)) {
             return checkCaseSensitive.get(lowerCaseItemNumber);
         }
         return 0.0;
     }
 
 
-
     public List<String> fizzBuzzList(int[] integers) {
 
         List<String> fizzBuzzList = new ArrayList<>();
 
-        for(int i = 0; i < integers.length; i ++) {
-            if(integers[i] % 3 == 0 && integers[i] % 5 == 0) {
+        for (int i = 0; i < integers.length; i++) {
+            if (integers[i] % 3 == 0 && integers[i] % 5 == 0) {
                 fizzBuzzList.add("FizzBuzz");
             } else if (integers[i] % 5 == 0) {
                 fizzBuzzList.add("Buzz");
-            } else if(integers[i] % 3 == 0) {
+            } else if (integers[i] % 3 == 0) {
                 fizzBuzzList.add("Fizz");
             } else {
                 fizzBuzzList.add(String.valueOf(integers[i]));
@@ -300,11 +299,11 @@ public class Main {
     public Map<String, Integer> peterToPayPaul(Map<String, Integer> theMoney) {
 
 
-        if(theMoney.containsKey("Peter") && theMoney.containsKey("Paul")) {
+        if (theMoney.containsKey("Peter") && theMoney.containsKey("Paul")) {
             int petersMoney = theMoney.get("Peter");
             int paulsMoney = theMoney.get("Paul");
 
-            if(petersMoney > 0 && paulsMoney < 1000) {
+            if (petersMoney > 0 && paulsMoney < 1000) {
                 int transferMoney = petersMoney / 2;
                 theMoney.put("Paul", paulsMoney + transferMoney);
                 theMoney.put("Peter", petersMoney - transferMoney);
@@ -320,7 +319,7 @@ public class Main {
 
         int[] newArrayNums = new int[numbers.length * 2];
 
-        newArrayNums[newArrayNums.length - 1] = numbers[numbers.length -1];
+        newArrayNums[newArrayNums.length - 1] = numbers[numbers.length - 1];
 
         return newArrayNums;
 
@@ -329,18 +328,18 @@ public class Main {
 
     public int[] makeEnds(int[] numbers) {
 
-       int firstHalf = numbers[0];
-       int secondHalf = numbers[numbers.length - 1];
-       int[] finalResult = {firstHalf, secondHalf};
-       return finalResult;
+        int firstHalf = numbers[0];
+        int secondHalf = numbers[numbers.length - 1];
+        int[] finalResult = {firstHalf, secondHalf};
+        return finalResult;
 
     }
 
 
     public boolean double23(int[] numbers) {
 
-        if(numbers[0] == 2 && numbers[1] == 2 || numbers[0] == 3 || numbers[1] == 3) {
-        return true;
+        if (numbers[0] == 2 && numbers[1] == 2 || numbers[0] == 3 || numbers[1] == 3) {
+            return true;
         }
         return false;
 
@@ -353,64 +352,70 @@ public class Main {
         int lowIndex = 0;
         int highIndex = numbers.length - 1;
         boolean isFound = false;
-        while (lowIndex <= highIndex && !isFound){
+        while (lowIndex <= highIndex && !isFound) {
             int middle = ((highIndex - lowIndex) / 2) + lowIndex;
-            if (value < numbers[middle]){
+            if (value < numbers[middle]) {
                 highIndex = middle - 1;
-            } else if (value > numbers[middle]){
+            } else if (value > numbers[middle]) {
                 lowIndex = middle + 1;
             } else {
                 return "Found it!";
             }
         }
-        if (!isFound){
+        if (!isFound) {
             return "Didn't find it!";
         }
 
-    return "something isn't working";
+        return "something isn't working";
 
     }
 
+    public String linearSearch(int[] numbers, int value) {
 
-
-    public boolean evenlySpaced(int a, int b, int c){
-
-        int[] array = {a, b, c};
-
-        sort(array);
-
-        return (array[1] - array[0] == array[2] - array[1]);
-
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == value) {
+                return "I found that dang number";
+            }
+        }
+        return "Failed to find";
     }
 
-    void sort(int arr[])
-    {
-        int n = arr.length;
 
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n-1; i++)
-        {
+//    public boolean evenlySpaced(int a, int b, int c){
+//
+//        int[] array = {a, b, c};
+//
+//        sort(array);
+//
+//        return (array[1] - array[0] == array[2] - array[1]);
+//
+//    }
+
+    public int[] sortTheArray(int array[]) {
+        int startingPoint = array.length;
+
+        // One by one move the boundary of the unsorted subarray
+        for (int i = 0; i < startingPoint - 1; i++) {
             // Find the minimum element in unsorted array
             int min_idx = i;
-            for (int j = i+1; j < n; j++)
-                if (arr[j] < arr[min_idx])
+            for (int j = i + 1; j < startingPoint; j++)
+                if (array[j] < array[min_idx])
                     min_idx = j;
 
-            // Swap the found minimum element with the first
-            // element
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
+            // Swap the found minimum element with the first element
+            int temp = array[min_idx];
+            array[min_idx] = array[i];
+            array[i] = temp;
         }
+        return array;
     }
-
 
 
     public int[] fix23(int[] numbers) {
 
-        for(int i = 0; i < numbers.length; i++) {
-            if(numbers[i] == 2) {
-                if(numbers[i] + 1 == 3) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 2) {
+                if (numbers[i] + 1 == 3) {
                     numbers[i + 1] = 0;
                 }
             }
@@ -419,11 +424,10 @@ public class Main {
     }
 
 
-
     public boolean noTriples(int[] numbers) {
 
-        for(int i = 0; i < numbers.length - 2; i++) {
-            if(numbers[i] == numbers[i + 1] && numbers[i] == numbers[i + 2]) {
+        for (int i = 0; i < numbers.length - 2; i++) {
+            if (numbers[i] == numbers[i + 1] && numbers[i] == numbers[i + 2]) {
                 return false;
             }
         }
@@ -442,13 +446,12 @@ public class Main {
     }
 
 
-
     public boolean arrayFront9(int[] nums) {
 
         int theLimit = Math.min(nums.length, 4);
 
-        for(int i = 0; i < theLimit; i++) {
-            if(nums[i] == 9) {
+        for (int i = 0; i < theLimit; i++) {
+            if (nums[i] == 9) {
                 return true;
             }
         }
@@ -457,25 +460,26 @@ public class Main {
     }
 
 
-
     public boolean foundIntTwice(List<Integer> numbers, int value) {
 
         int counter = 0;
-        for(int i = 0; i < numbers.size(); i++)
-                if(value == numbers.get(i)) {
-                    counter++;
-                }
-                if(counter >= 2) {
-                    return true;
-                }
+        for (int i = 0; i < numbers.size(); i++)
+            if (value == numbers.get(i)) {
+                counter++;
+            }
+        if (counter >= 2) {
+            return true;
+        }
         return false;
 
-        };
+    }
+
+    ;
 
 
     public String comboStrings(String a, String b) {
 
-        if(a.length() > b.length()) {
+        if (a.length() > b.length()) {
             return b + a + b;
         } else {
             return a + b + a;
@@ -488,8 +492,8 @@ public class Main {
 
         int countOf = 0;
 
-        for(int i = 0; i < str.length() - 1; i++) {
-            if(str.charAt(i) == 'x' && str.charAt(i + 1) == 'x') {
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) == 'x' && str.charAt(i + 1) == 'x') {
                 countOf++;
             }
         }
@@ -503,15 +507,15 @@ public class Main {
         int counter1 = 0;
         int counter4 = 0;
 
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] == 1) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
                 counter1++;
-            } else if(nums[i] == 4) {
+            } else if (nums[i] == 4) {
                 counter4++;
             }
         }
 
-        if(counter1 > counter4) {
+        if (counter1 > counter4) {
             return true;
         }
 
@@ -521,9 +525,9 @@ public class Main {
 
     public boolean array123(int[] nums) {
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
-            if(nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
+            if (nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
                 return true;
             }
 
@@ -544,8 +548,8 @@ public class Main {
 
         List<String> newList = new ArrayList<>();
 
-        for(int i = 0; i < strings.length; i++) {
-            if(strings[i].length() < 4 || strings[i].length() > 4) {
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i].length() < 4 || strings[i].length() > 4) {
                 newList.add(strings[i]);
             }
         }
@@ -557,9 +561,9 @@ public class Main {
 
     public int sumOdds() {
         int number = 0;
-        for(int i = 1; i < 101; i++) {
+        for (int i = 1; i < 101; i++) {
 
-            if(i % 2 == 1) {
+            if (i % 2 == 1) {
                 number = number + i;
             }
         }
@@ -571,9 +575,9 @@ public class Main {
 
         int sumOfOdds = 0;
 
-        for(int i = start; i <= end; i++) {
+        for (int i = start; i <= end; i++) {
 
-            if(i % 2 == 1) {
+            if (i % 2 == 1) {
                 sumOfOdds = sumOfOdds + i;
             }
 
@@ -582,19 +586,17 @@ public class Main {
     }
 
 
-
     public int[] fzzArray3(int start, int end) {
 
         int[] newArray = new int[end - start];
 
-        for(int i = 0; i < newArray.length; i++) {
+        for (int i = 0; i < newArray.length; i++) {
             newArray[i] = start + i;
 
         }
 
         return newArray;
     }
-
 
 
     public boolean isStrictlyIncreasing(int[] numbers) {
@@ -608,15 +610,16 @@ public class Main {
 
         }
         return true;
-    };
+    }
 
+    ;
 
 
     public boolean hasBad(String str) {
 
-        if(str.substring(0,2).contains("ba")) {
+        if (str.substring(0, 2).contains("ba")) {
             return true;
-        } else if(str.substring(1,3).contains("ba")) {
+        } else if (str.substring(1, 3).contains("ba")) {
             return true;
         }
 
@@ -629,9 +632,9 @@ public class Main {
         String newString = "";
         char character;
 
-        for(int i = 0; i < str.length(); i++) {
-           character = str.charAt(i);
-           newString = character + newString;
+        for (int i = 0; i < str.length(); i++) {
+            character = str.charAt(i);
+            newString = character + newString;
 
         }
 
@@ -639,20 +642,19 @@ public class Main {
     }
 
 
-
     public String frontTimes(String string, int number) {
 
         String newString = "";
 
 
-            if(string.length() < 3) {
-                String repeated = string.repeat(number);
-                return repeated;
-            } else {
-                newString = string.substring(0, 3);
-                String repeated = newString.repeat(number);
-                return repeated;
-            }
+        if (string.length() < 3) {
+            String repeated = string.repeat(number);
+            return repeated;
+        } else {
+            newString = string.substring(0, 3);
+            String repeated = newString.repeat(number);
+            return repeated;
+        }
 
     }
 
@@ -660,7 +662,7 @@ public class Main {
 
         List<String> theNewList = new ArrayList<>();
 
-        for(int i = strings.size() - 1; i >= 0; i--) {
+        for (int i = strings.size() - 1; i >= 0; i--) {
 
             theNewList.add(strings.get(i));
 
@@ -670,12 +672,11 @@ public class Main {
     }
 
 
-
     public String[] list2Arrays(List<String> strings) {
 
         String[] newStringArray = new String[strings.size()];
 
-        for(int i = 0; i < strings.size(); i++) {
+        for (int i = 0; i < strings.size(); i++) {
 
             newStringArray[i] = strings.get(i);
 
@@ -690,25 +691,27 @@ public class Main {
 
         int largestValue = 0;
 
-        for(int i = 0; i < numbers.size() -1; i++) {
+        for (int i = 0; i < numbers.size() - 1; i++) {
 
-            if(largestValue < numbers.get(i)) {
+            if (largestValue < numbers.get(i)) {
                 largestValue = numbers.get(i);
             }
 
         }
 
         return largestValue;
-    };
+    }
+
+    ;
 
 
     public List<String> distinctValues(List<String> strings) {
 
         List<String> newStringList = new ArrayList<>();
 
-        for(int i = 0; i < strings.size(); i ++) {
+        for (int i = 0; i < strings.size(); i++) {
 
-            if(!newStringList.contains(strings.get(i))) {
+            if (!newStringList.contains(strings.get(i))) {
                 newStringList.add(strings.get(i));
             }
 
@@ -722,7 +725,7 @@ public class Main {
 
         List<String> newList = new ArrayList<>();
 
-        for(int i = 0; i < strings.length; i++) {
+        for (int i = 0; i < strings.length; i++) {
 
             newList.add(strings[i]);
 
@@ -737,7 +740,7 @@ public class Main {
 
         List<Double> newDoubleList = new ArrayList<>();
 
-        for(int i = 0; i < integers.length; i++) {
+        for (int i = 0; i < integers.length; i++) {
 
             newDoubleList.add(integers[i] / 2.0);
 
@@ -753,8 +756,8 @@ public class Main {
 
         int middleOfArray = numbers.length / 2;
 
-      newNumbers[0] = numbers[middleOfArray - 1];
-      newNumbers[1] = numbers[middleOfArray];
+        newNumbers[0] = numbers[middleOfArray - 1];
+        newNumbers[1] = numbers[middleOfArray];
 
 
         return newNumbers;
@@ -772,7 +775,7 @@ public class Main {
 
     public int blackjack(int a, int b) {
 
-        if(a > 21 && b > 21) {
+        if (a > 21 && b > 21) {
             return 0;
         } else if (a > 21) {
             return b;
@@ -783,7 +786,7 @@ public class Main {
         int sumA = 21 - a;
         int sumB = 21 - b;
 
-        if(sumA < sumB) {
+        if (sumA < sumB) {
             return a;
         } else {
             return b;
@@ -796,14 +799,14 @@ public class Main {
 
         String[] fizzBuzzString = new String[100];
 
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             int value = i + 1;
 
-            if(value % 5 == 0 && value % 3 == 0) {
+            if (value % 5 == 0 && value % 3 == 0) {
                 fizzBuzzString[i] = "Fizzbuzz";
-            } else if(value % 3 == 0) {
+            } else if (value % 3 == 0) {
                 fizzBuzzString[i] = "Fizz";
-            } else if(value % 5 == 0) {
+            } else if (value % 5 == 0) {
                 fizzBuzzString[i] = "Buzz";
             } else {
                 fizzBuzzString[i] = String.valueOf(value);
@@ -820,7 +823,7 @@ public class Main {
         int numTwo = 1;
         int count = 2;
 
-        while(numOne + numTwo < 2000) {
+        while (numOne + numTwo < 150) {
             int numThree = numOne + numTwo;
             numOne = numTwo;
             numTwo = numThree;
@@ -833,7 +836,7 @@ public class Main {
         numOne = 0;
         numTwo = 1;
 
-        for(int i = 2; i < count; i++) {
+        for (int i = 2; i < count; i++) {
             int numThree = numOne + numTwo;
 
             fibArray[i] = numThree;
@@ -849,7 +852,7 @@ public class Main {
 
     public List<Integer> returnIntArray(List<Integer> reverseIntegers) {
         List<Integer> theReversedList = new ArrayList<>();
-        for(int i = reverseIntegers.size() -1; i >= 0; i--) {
+        for (int i = reverseIntegers.size() - 1; i >= 0; i--) {
             theReversedList.add(reverseIntegers.get(i));
         }
         return theReversedList;
@@ -860,7 +863,7 @@ public class Main {
 
         int finalValue = 0;
 
-        for(int i = 0; i < arrayOfIntegers.size(); i++) {
+        for (int i = 0; i < arrayOfIntegers.size(); i++) {
 
             finalValue = finalValue + arrayOfIntegers.get(i);
 
@@ -871,7 +874,6 @@ public class Main {
     }
 
 
-
     public List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
 
         List<Integer> mynewList = new ArrayList<>();
@@ -880,11 +882,11 @@ public class Main {
         int countB = 0;
 
 
-        for(int i = 0; i < a.size(); i++) {
+        for (int i = 0; i < a.size(); i++) {
 
-            if(a.get(i) > b.get(i)) {
+            if (a.get(i) > b.get(i)) {
                 countA++;
-            } else if(b.get(i) > a.get(i)) {
+            } else if (b.get(i) > a.get(i)) {
                 countB++;
 
             }
@@ -893,13 +895,15 @@ public class Main {
         mynewList.add(countB);
 
         return mynewList;
-    };
+    }
+
+    ;
 
     public long aVeryBigSum(List<Long> ar) {
 
         long finalResult = 0;
 
-        for(int i = 0; i < ar.size(); i++) {
+        for (int i = 0; i < ar.size(); i++) {
             finalResult = finalResult + ar.get(i);
         }
 
@@ -912,26 +916,41 @@ public class Main {
 
         List<Integer> numberOfQueryMatches = new ArrayList<>();
 
-
-        for(int i = 0; i < queries.size(); i++) {
+        for (int i = 0; i < queries.size(); i++) {
 
             String string = queries.get(i);
             int counter = 0;
 
-            for(int j = 0; j < strings.size(); j++) {
+            for (int j = 0; j < strings.size(); j++) {
 
-                if(string.equals(strings.get(j))) {
+                if (string.equals(strings.get(j))) {
                     counter++;
                 }
 
             }
             numberOfQueryMatches.add(counter);
-
         }
 
         return numberOfQueryMatches;
 
     }
+
+
+    //this method removes duplicate arrays via the two-pointer approach.
+    //both the left and right pointer start at the beginning of the array and compare one to the next
+    //i'm not using an arraylist here, so i'm only returning the integer count of the new array after modification
+    public int removeDuplicatesFromSortedArray(int[] nums) {
+
+
+        int leftPointer = 1;
+        for (int rightPointer = 1; rightPointer < nums.length; rightPointer++) {
+            if (nums[rightPointer] != nums[rightPointer - 1]) {
+                nums[leftPointer++] = nums[rightPointer];
+            }
+        }
+        return leftPointer;
+    }
+
 
 
 
@@ -940,21 +959,66 @@ public class Main {
 
        Main mainInstance = new Main();
 
-       List<String> someStrings = new ArrayList<>(Arrays.asList("aba", "baba", "aba", "xzxb"));
-       List<String> queryStrings = new ArrayList<>(Arrays.asList("aba", "xzxb", "ab"));
-       List<Integer> finalResult = mainInstance.matchingStrings(someStrings, queryStrings);
-        System.out.println(finalResult);
+    /*
+    Input: nums = [1,1,2,3,4]
 
-       List<Long> someNumbers = new ArrayList<>(Arrays.asList(1000000001L, 1000000002L, 1000000003L, 1000000004L, 1000000005L));
-       long theAnswer = mainInstance.aVeryBigSum(someNumbers);
-        System.out.println(theAnswer);
+    Output: [1,2,3,4]
 
-       List<Integer> listA = new ArrayList<>(Arrays.asList(17, 28, 30));
-       List<Integer> listB = new ArrayList<>(Arrays.asList(99, 16, 8));
+    Input: nums = [2,10,10,30,30,30]
 
-       List<Integer> letsSee = mainInstance.compareTriplets(listA, listB);
-        System.out.println(letsSee);
+    Output: [2,10,30]
+     */
+        int[] exampleNumbers = {1,1,2,3,4};
+        int finalArray = mainInstance.removeDuplicatesFromSortedArray(exampleNumbers);
+        System.out.println(finalArray);
 
+
+
+
+
+
+
+
+
+//       List<String> someStrings = new ArrayList<>(Arrays.asList("aba", "baba", "aba", "xzxb"));
+//       List<String> queryStrings = new ArrayList<>(Arrays.asList("aba", "xzxb", "ab"));
+//       List<Integer> finalResult = mainInstance.matchingStrings(someStrings, queryStrings);
+//        System.out.println(finalResult);
+//
+//       List<Long> someNumbers = new ArrayList<>(Arrays.asList(1000000001L, 1000000002L, 1000000003L, 1000000004L, 1000000005L));
+//       long theAnswer = mainInstance.aVeryBigSum(someNumbers);
+//        System.out.println(theAnswer);
+//
+//       List<Integer> listA = new ArrayList<>(Arrays.asList(17, 28, 30));
+//       List<Integer> listB = new ArrayList<>(Arrays.asList(99, 16, 8));
+//
+//       List<Integer> letsSee = mainInstance.compareTriplets(listA, listB);
+//        System.out.println(letsSee);
+
+
+//        String[] fizzBuzzString = mainInstance.fizzBuzz();
+//        System.out.println(Arrays.toString(fizzBuzzString));
+
+//
+//        int[] numbers = new int[25];
+//        for(int i = 0; i < numbers.length; i++) {
+//            numbers[i] = i;
+//        }
+//        int value = 3;
+
+//        long startTime = System.nanoTime();
+//        long endTime = System.nanoTime();
+//        System.out.println(endTime - startTime);
+//        String theResult = mainInstance.binarySearch(numbers, value);
+//        System.out.println(theResult);
+//
+//        int[] exampleArray = new int[] {3, 6, 2, 4, 7, 2, 8, 1, 9};
+//        int[] finalResult = mainInstance.sortTheArray(exampleArray);
+//        System.out.println(Arrays.toString(finalResult));
+//
+//
+//        int[] finalResult = mainInstance.fibonacci();
+//        System.out.println(Arrays.toString(finalResult));
 
     }
 
