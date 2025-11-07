@@ -935,21 +935,43 @@ public class Main {
 
     }
 
+    // LEETCODE!!!!!!
 
-    //this method removes duplicate arrays via the two-pointer approach.
-    //both the left and right pointer start at the beginning of the array and compare one to the next
-    //i'm not using an arraylist here, so i'm only returning the integer count of the new array after modification
+    // 1) this method removes duplicate arrays via the two-pointer approach.
+    // 2) this array is modified in place, meaning that the unique values appear from INDEX 0
+    // 3) i'm not using an arraylist here, so i'm only returning the integer count of the array after modification
     public int removeDuplicatesFromSortedArray(int[] nums) {
 
-
+        //the left pointer keeps track of the position where the next unique number should be placed
+        //i've started it at index 1 because the first element [nums @ 0] is always unique
         int leftPointer = 1;
+
+        //the right pointer here is scanning thru the array, comparing each element to the previous one
+        //beginning at index 1, or the second element, and continuing until the end
         for (int rightPointer = 1; rightPointer < nums.length; rightPointer++) {
+
+            //is the current number different from the previous number?
+            //if they're equal, then they're duplicate, so we do nothing
+            //if they're different, then it is a new unique number, so we copy it to left pointer variable position
             if (nums[rightPointer] != nums[rightPointer - 1]) {
+                //assign left pointer the current value of right pointer and then increment the count
                 nums[leftPointer++] = nums[rightPointer];
             }
         }
+        //finally, left pointer represents the count of unique elements in the array (moving the left pointer forward by 1
+        //each time we find a unique value
         return leftPointer;
     }
+
+
+    public int removeElement(int[] nums, int val) {
+
+
+        return 0;
+    }
+
+
+}
 
 
 
@@ -968,7 +990,7 @@ public class Main {
 
     Output: [2,10,30]
      */
-        int[] exampleNumbers = {1,1,2,3,4};
+        int[] exampleNumbers = {1,1,2,3,3};
         int finalArray = mainInstance.removeDuplicatesFromSortedArray(exampleNumbers);
         System.out.println(finalArray);
 
